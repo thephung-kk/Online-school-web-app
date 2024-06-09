@@ -27,7 +27,7 @@
                         <li class="nav-item">
                             <a th:href="@{/courses}" class="nav-link">Courses</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" sec:authorize="isAnonymous()">
                             <a th:href="@{/contact}" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAnonymous()">
@@ -42,7 +42,6 @@
                     </ul>
                 </div>
                 <!-- toggle switch for light and dark theme -->
-
                 <div class="cont-ser-position">
                     <nav class="navigation">
                         <div class="theme-switch-wrapper">

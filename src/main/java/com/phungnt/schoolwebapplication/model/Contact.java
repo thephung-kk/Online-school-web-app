@@ -1,11 +1,22 @@
 package com.phungnt.schoolwebapplication.model;
 
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 import jakarta.validation.constraints.*;
+import org.hibernate.annotations.GenericGenerator;
 
-@Data
-public class Contact {
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "contactMsg")
+public class Contact extends BaseEntity{
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "contact_id")
+    private int contactId;
     @NotBlank(message="Name must not be blank")
     @Size(min=3, message="Name must be at least 3 characters long")
     private String name;
@@ -25,4 +36,6 @@ public class Contact {
     @NotBlank(message="Message must not be blank")
     @Size(min=10, message="Message must be at least 10 characters long")
     private String message;
+
+    private String status;
 }
